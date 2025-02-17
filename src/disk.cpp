@@ -14,6 +14,11 @@ void Disk::move(double dx, double dy){
 
 double Disk::distance(Disk& other){
 
-    // HINT: COMPLETE THE CALCULATION OF THE DISTANCE BETWEEN this DISK AND THE DISK other
+    // Calculate the Euclidean distance
+    // The formula is sqrt of [(x1 - x2)^2 + (y1 - y2)^2]
+
+    double diff_x_squared = pow(this->x - other.x, 2);
+    double diff_y_squared = pow(this->y - other.y, 2);
+    return std::sqrt(diff_x_squared + diff_y_squared);
 
 }
