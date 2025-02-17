@@ -1,0 +1,22 @@
+# Ignore compiled files
+*.exe
+*.o
+*.out
+
+# Ignore build and confs directory
+/build/
+/confs/
+
+# Ignore documentation files
+*.pdf
+*.html
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore editor and OS temporary files
+.vscode/
+.DS_Store
+*.swp
