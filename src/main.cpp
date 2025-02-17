@@ -1,30 +1,33 @@
 #include <iostream>
 #include <string>
-// HINT: COMPLETE THE INCLUDE STATEMENT
-
+#include "system.h"
 
 /**
  * @brief Entry point of the program.
  *
  * This function initializes the program and manages execution.
  */
-int main() {
-    // number of disks
-    int N = 20;
-    double maxDisplacement  = 0.6;
-    double dt = 0.5;
-    double L = 20.0;
+int main(int argc, char* argv[]) {
+    // Ensure correct number of arguments
+    if (argc != 6) {
+        std::cerr << "Enter your inputs (N) (Max Displacement Per Step) (Radius) (Box Size) (Number of Iterations): " 
+        << argv[0] << " <N> <maxDisplacement> <dt> <L> <iterations>\n";
+        return 1; // Exit with error if there are not exactly 6 arguments
+    }
 
-    // initialise the system
+    int N = std::atoi(argv[1]);          // Number of disks
+    double maxDisplacement = std::atof(argv[2]); // Maximum displacement per step
+    double dt = std::atof(argv[3]);      // Radius
+    double L = std::atof(argv[4]);       // Box size
+    int iterations = std::atoi(argv[5]); // Num of iterations
+
+    // Initialise the system
     System system(N, maxDisplacement,dt,L,1234);
 
-    // total number of iterations
-    int iterations = N*500;
-
     for (int i = 0; i < iterations; ++i) {
-        // move one disk
+        // Move one disk
         system.step();
-        // save a configuration
+        // Save a configuration
         system.save("confs/conf"+std::to_string(i));
     }
     return 0;
