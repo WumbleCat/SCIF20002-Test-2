@@ -8,8 +8,7 @@ CXX = g++
 # -O3 enables optimisations (loop unrolling, vectorisation, etc.)
 # -march=native optimises the program for the specific CPU
 # -flto enables link-time optimisation
-CXXFLAGS = -std=c++11 -Wall -Iinclude -O3 -march=native -flto -fno-strict-aliasing
-
+CXXFLAGS = -std=c++11 -Wall -Iinclude -O3 -march=native -flto 
 
 # Set directory names
 SRC_DIR = src
@@ -17,28 +16,29 @@ OBJ_DIR = build
 CONF_DIR = confs
 BIN_DIR = bin
 
-# Find source files in src/
+# Find source files in src/ folder
 SOURCES = $(wildcard $(SRC_DIR)/*.cpp)
 OBJECTS = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
 
-# Set executable name
+# Set executable name to main
 TARGET = $(BIN_DIR)/main
 
-# Set the default build rule
+# Set the default build rule (basically g++ <cpp files> -o <exe files>)
 all: $(TARGET)
 
-# Set the rule to compile and link
+# Set the rule to compile and link with previously defined directories
 $(TARGET): $(OBJ_DIR) $(CONF_DIR) $(OBJECTS)
-	@mkdir -p $(BIN_DIR) 2> NUL || true  # Ensure bin/ exists (Windows/Linux)
+	@mkdir -p $(BIN_DIR)  # Ensure bin/ exists
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJECTS)
 
-# Check to see if the build directory exists
+# Check to see if the build directory exists and creates build directory if it doesn't exist
 $(OBJ_DIR):
-	@mkdir -p $(OBJ_DIR) 2> NUL || true  # Windows/Linux safe
+	# mkdir = creates a directory
+	@mkdir -p $(OBJ_DIR)  
 
-# Check to see if confs directory exists
+# Check to see if confs directory exists and creates confs directory if it doesn't exist
 $(CONF_DIR):
-	@mkdir -p $(CONF_DIR) 2> NUL || true  # Windows/Linux safe
+	@mkdir -p $(CONF_DIR) 
 
 # Set rule to compile .cpp files into .o files
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
@@ -46,5 +46,9 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 
 # Set cleaning rule (For both Windows & Linux)
 clean:
-	@rm -rf $(OBJ_DIR) $(BIN_DIR) 2> NUL || rmdir /S /Q $(OBJ_DIR) 2> NUL
-	@rm -f $(CONF_DIR)/* 2> NUL || del /S /Q $(CONF_DIR)\* 2> NUL
+	# rm = remove
+	# -r = deletes directories and its contents
+	# 2> /dev/null = just prevents errors from being displayed
+	# || true = makes sure that if the directories don't exist, the command will still go through
+	@rm -r $(OBJ_DIR) $(BIN_DIR) 2> /dev/null || true 
+	@rm -f $(CONF_DIR)/* 2> /dev/null || true  

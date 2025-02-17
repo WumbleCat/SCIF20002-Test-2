@@ -49,7 +49,7 @@ def update(frame):
         patch.set_radius(r)
     return circles
 
-ani = FuncAnimation(fig, update, frames=len(filenames), blit=True, interval=50)
+ani = FuncAnimation(fig, update, frames=len(filenames), blit=True, interval=200)
 
 # Define the output directory path like previously done and make sure it exists
 output_dir = os.path.join(script_dir, "..", "output")
