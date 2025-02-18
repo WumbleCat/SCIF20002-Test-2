@@ -31,5 +31,10 @@ class DiskSimulation:
 
         return result.stdout
 
-simulation = DiskSimulation(20, 0.6, 0.5, 20, 100)
+N = 20 # number of disks
+maxDisplacement = 0.6 # distance per step
+dt = 0.5 # radius
+L = 20 # size of the box
+iterations = 100 # number of iterations
+simulation = DiskSimulation(N, maxDisplacement, dt, L, iterations)
 output = simulation.run()
