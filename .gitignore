@@ -6,7 +6,6 @@
 # Ignore build and confs directory
 /build/
 /confs/
-/output/
 
 # Ignore documentation files
 *.pdf
