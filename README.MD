@@ -6,6 +6,7 @@
 - [Modifications & Reconstruction](#modifications--reconstruction)
 - [Project Structure](#project-structure)
 - [Usage](#usage)
+- [References](#References)
 
 
 
@@ -152,3 +153,15 @@ for example,
 ```bash
 git checkout v0.4
 ```
+
+
+## References
+List of useful references that helped me with this project:
+
+- **Python Subprocess Module** – [DataCamp: Python Subprocess](https://www.datacamp.com/tutorial/python-subprocess)  
+
+- **C++ Project Structure** –  [Medium: C++ Application Development - Project Structure](https://medium.com/heuristics/c-application-development-part-1-project-structure-454b00f9eddc)  
+
+- **Encapsulation in C++** – [W3Schools: C++ Encapsulation](https://www.w3schools.com/cpp/cpp_encapsulation.asp)  
+
+- **How to Write a Good README** – https://www.makeareadme.com/
