@@ -15,7 +15,6 @@ SRC_DIR = src
 OBJ_DIR = build
 CONF_DIR = confs
 BIN_DIR = bin
-OUTPUT_DIR = output
 
 # Find source files in src/ folder
 SOURCES = $(wildcard $(SRC_DIR)/*.cpp)
@@ -51,5 +50,5 @@ clean:
 	# -r = deletes directories and its contents
 	# 2> /dev/null = just prevents errors from being displayed
 	# || true = makes sure that if the directories don't exist, the command will still go through
-	@rm -r $(OBJ_DIR) $(BIN_DIR) $(OUTPUT_DIR) 2> /dev/null || true 
+	@rm -r $(OBJ_DIR) $(BIN_DIR) 2> /dev/null || true 
 	@rm -f $(CONF_DIR)/* 2> /dev/null || true  

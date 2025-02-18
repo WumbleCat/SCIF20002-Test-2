@@ -8,6 +8,11 @@
 - [Usage](#usage)
 - [References](#References)
 
+## Simulation Output
+
+Here is a sneak peek into the simulation
+
+![Simulation GIF](output/animation.gif)
 
 
 ## Brief Outline
@@ -97,7 +102,7 @@ There are a total of 4 tags. One for each major upgrade from the previous
     - Encapsulation
     - Python wrapping for easy execution
     - Makefile for easy compilation
-- v1.1 added references in the bottom of the 
+- v1.1 added references in the bottom of the readme
 
 ## Usage
 ### **Compile and Running the Code**
@@ -126,7 +131,7 @@ To have a hard reset and clean everything, run the command
 ```bash
 mingw32-make clean
 ```
-This will clear all confs files, output folder (for gif), and object folder(for c++ objects).
+This will clear all confs files, and object folder(for c++ objects).
 
 ### **Instructions for Navigating the Commits and Tags**
 
