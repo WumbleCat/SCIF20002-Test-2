@@ -101,14 +101,18 @@ There are a total of 4 tags. One for each major upgrade from the previous
 
 ## Usage
 ### **Compile and Running the Code**
-Run the following command to **compile** the C++ program:
+1. Run the following command to **compile** the C++ program:
 ```bash
 mingw32-make
 ```
+#### **It does not have to be `mingw32-make`, it depends on what you set your `make` command as**
 
-After compiling the program, you can run the generated executable file in (`/scripts/wrapper.py`) and specify your desired parameters
+2. After compiling the program, run the generated executable file in (`/scripts/wrapper.py`) and specify your desired parameters. This will generate the confs files that contains all the information of all the particles
 
-Or if you want to run it manually without using a wrapper, you can use
+3. After generating the confs files, run (`/scripts/view.py`) in order to generate the simulation of the disks and save it as a gif.
+
+
+Or in **step 2** if you want to run it manually without using a wrapper, you can use
 ```bash
 bin/main <N> <maxDisplacement> <radius> <boxSize> <iterations>
 ```
@@ -118,6 +122,11 @@ for example
 bin/main 20 0.6 0.5 20 100
 ```
 
+To have a hard reset and clean everything, run the command
+```bash
+mingw32-make clean
+```
+This will clear all confs files, output folder (for gif), and object folder(for c++ objects).
 
 ### **Instructions for Navigating the Commits and Tags**
 
