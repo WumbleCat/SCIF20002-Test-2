@@ -97,6 +97,7 @@ There are a total of 4 tags. One for each major upgrade from the previous
     - Encapsulation
     - Python wrapping for easy execution
     - Makefile for easy compilation
+- v1.1 added references in the bottom of the 
 
 ## Usage
 ### **Compile and Running the Code**
